@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 var pool = mysql.createPool({
-    connectTimeout : 10,
+    connectionLimit : 10,
     host : process.env.DB_HOST,
     port: process.env.DB_PORT,
     user : process.env.DB_USER,
@@ -11,4 +11,4 @@ var pool = mysql.createPool({
     database: process.env.DB_DATABASE
 });
 
-export default pool;
+module.exports = pool;
