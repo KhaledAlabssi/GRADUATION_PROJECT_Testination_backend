@@ -7,16 +7,24 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
+
+
 const teacherRouter = require('./routes/teacher')
 app.use('/teacher', teacherRouter);
 
 const loginRouter = require('./routes/login')
 app.use('/login', loginRouter);
 
-app.get('/', (req, res) => {
-    res.send("Hi")
-})
+const mainRouter = require('./routes/home')
+app.use('/main', mainRouter);
+
+const groupsRouter = require('./routes/groups')
+app.use('/groups', groupsRouter)
+
+const testsRouter = require('./routes/tests')
+app.use('/tests', testsRouter)
+
 
 app.listen(process.env.PORT || 4000,()=>{
-    console.log("Server is running on 3000 or process.env.PORT ")
+    console.log("Server is running on 4000 or process.env.PORT ")
 })
