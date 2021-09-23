@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
-// const blank = require('../controllers/test.js')
+const getGroups = require('../controllers/groups')
 
-router.get('/', (req, res) => {
-    res.send('Groups Page')
-})
 
-router.get('/:name', (req, res) => {
-    res.send(`I'm here with group: ${req.params.name}`)
+router.get('/', getGroups.getAllGroups)
 
-})
+router.get('/:name', getGroups.getGroup)
 
 module.exports = router;
