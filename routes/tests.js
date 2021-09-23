@@ -1,14 +1,9 @@
 const express = require('express');
 const router = express.Router();
-// const blank = require('../controllers/test.js')
+const getTests = require('../controllers/tests.js')
 
-router.get('/', (req, res) => {
-    res.send('tests Page')
-})
+router.get('/', getTests.alltests)
 
-router.get('/:name', (req, res) => {
-    res.send(`I'm here with test: ${req.params.name}`)
-
-})
+router.get('/:name', getTests.test)
 
 module.exports = router;
