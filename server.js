@@ -24,6 +24,9 @@ app.use('/groups', groupsRouter)
 const testsRouter = require('./routes/tests')
 app.use('/tests', testsRouter)
 
+const questionRouter = require('./routes/questions')
+app.use('/questions', questionRouter)
+
 
 app.listen(process.env.PORT || 4000,()=>{
     console.log("Server is running on 4000 or process.env.PORT ")
