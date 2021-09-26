@@ -35,7 +35,7 @@ function createGroup(req, res) {
         if(err) throw err
         console.log(`connection as id....... ${connection.threadId}`)
         console.log(req);
-        connection.query(`INSERT INTO groups (id, name, user_id) VALUES (NULL, '${req.body.name}', 1);`, (err, rows) => {
+        connection.query(`INSERT INTO groups (id, name, teacher_id) VALUES (NULL, '${req.body.name}', 1);`, (err, rows) => {
             connection.release() // return the connection to pool
             if (!err) {
                 res.json(rows)

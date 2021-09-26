@@ -35,7 +35,7 @@ function createTest(req, res) {
         if(err) throw err
         console.log(`connection as id....... ${connection.threadId}`)
         console.log(req);
-        connection.query(`INSERT INTO tests (id, name, user_id) VALUES (NULL, '${req.body.name}', 1);`, (err, rows) => {
+        connection.query(`INSERT INTO tests (id, name, teacher_id) VALUES (NULL, '${req.body.name}', 1);`, (err, rows) => {
             connection.release() // return the connection to pool
             if (!err) {
                 res.json(rows)
