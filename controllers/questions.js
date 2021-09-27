@@ -35,7 +35,7 @@ function createQuestion(req, res) {
         if(err) throw err
         console.log(`connection as id....... ${connection.threadId}`)
         console.log(req);
-        connection.query(`INSERT INTO questions (id, body, user_id, score) VALUES (NULL, '${req.body.body}', 1, 100);`, (err, rows) => {
+        connection.query(`INSERT INTO questions (id, body, teacher_id, score) VALUES (NULL, '${req.body.body}', 1, '${req.body.score}');`, (err, rows) => {
             connection.release() // return the connection to pool
             if (!err) {
                 res.json(rows)
