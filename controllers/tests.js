@@ -19,7 +19,7 @@ function test(req, res) {
     pool.getConnection((err, connection) => {
         if(err) throw err
         console.log(`connection as id....... ${connection.threadId}`)
-        connection.query('select * from tests where name =?',`${req.params.name}`, (err, rows) => {
+        connection.query("SELECT questions.*, test_has_questions.* FROM questions LEFT JOIN test_has_questions ON test_has_questions.question_id = questions.id WHERE test_has_questions.test_id =?",`${req.params.id}`, (err, rows) => {
             connection.release() // return the connection to pool
             if (!err) {
                 res.json(rows)
