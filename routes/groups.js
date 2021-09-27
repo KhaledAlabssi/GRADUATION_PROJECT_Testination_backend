@@ -7,6 +7,6 @@ router.get('/', getGroups.getAllGroups)
 
 router.post('/new', getGroups.createGroup)
 
-router.get('/:name', getGroups.getGroup)
+router.get('/:id', getGroups.getGroup)
 
 module.exports = router;
