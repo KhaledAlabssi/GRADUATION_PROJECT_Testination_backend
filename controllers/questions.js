@@ -46,8 +46,44 @@ function createQuestion(req, res) {
     })
 }
 
+function questionToTest(req, res) {
+    pool.getConnection((err, connection) => {
+        if(err) throw err
+        console.log(`connection as id....... ${connection.threadId}`)
+        console.log(req);
+        connection.query(`INSERT INTO test_has_questions (test_id, question_id) VALUES ('${req.body.test}', '${req.body.question}');`, (err, rows) => {
+            connection.release() // return the connection to pool
+            if (!err) {
+                res.json(rows)
+            } else {
+                console.log(err)
+            }
+        })
+    })
+}
+
+function currentQuestion(req, res) {
+    pool.getConnection((err, connection) => {
+        if(err) throw err
+        console.log(`connection as id....... ${connection.threadId}`)
+        console.log(req);
+        connection.query(`select max(id) as id from questions;`, (err, rows) => {
+            connection.release() // return the connection to pool
+            if (!err) {
+                res.json(rows)
+            } else {
+                console.log(err)
+            }
+        })
+    })
+}
+
+
+
 module.exports = {
     allQuestions,
     getQuestion,
-    createQuestion
+    createQuestion,
+    questionToTest,
+    currentQuestion
 }

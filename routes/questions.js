@@ -6,6 +6,8 @@ const getQuestions = require('../controllers/questions')
 router.get('/', getQuestions.allQuestions)
 
 router.post('/new', getQuestions.createQuestion)
+router.post('/toTest', getQuestions.questionToTest)
+router.get('/current', getQuestions.currentQuestion)
 
 router.get('/:body', getQuestions.getQuestion);
 
