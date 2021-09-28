@@ -6,6 +6,7 @@ const getstudents = require('../controllers/students')
 router.get('/', getstudents.allstudents)
 
 router.post('/new', getstudents.createStudent)
+router.get('/current', getstudents.currentStudent)
 
 router.get('/:name', getstudents.getStudent)
 
