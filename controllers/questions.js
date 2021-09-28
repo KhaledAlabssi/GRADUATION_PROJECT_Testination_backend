@@ -51,7 +51,7 @@ function questionToTest(req, res) {
         if(err) throw err
         console.log(`connection as id....... ${connection.threadId}`)
         console.log(req);
-        connection.query(`INSERT INTO test_has_questions (test_id, question_id) VALUES ('${req.body.test}', '${req.body.question}');`, (err, rows) => {
+        connection.query(`INSERT INTO test_has_questions (test_id, question_id) VALUES ('${req.body.test_id}', '${req.body.question_id}');`, (err, rows) => {
             connection.release() // return the connection to pool
             if (!err) {
                 res.json(rows)
@@ -77,8 +77,6 @@ function currentQuestion(req, res) {
         })
     })
 }
-
-
 
 module.exports = {
     allQuestions,

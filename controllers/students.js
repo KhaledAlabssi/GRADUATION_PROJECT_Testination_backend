@@ -73,7 +73,7 @@ function currentStudent(req, res) {
         if(err) throw err
         console.log(`connection as id....... ${connection.threadId}`)
            
-        connection.query(`select max(id) as id from students;`, (err, rows) => {
+        connection.query(`select max(id) as id from questions;`, (err, rows) => {
             connection.release() 
             // return the connection to pool
             if (!err) {
@@ -85,8 +85,6 @@ function currentStudent(req, res) {
         
     })
 }
-
-
 
 module.exports = {
     allstudents,
