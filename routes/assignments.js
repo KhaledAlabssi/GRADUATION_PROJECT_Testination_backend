@@ -4,5 +4,4 @@ const assignments = require('../controllers/assignments')
 
 router.post('/assignTest', assignments.assignTest)
 
-
 module.exports = router;
