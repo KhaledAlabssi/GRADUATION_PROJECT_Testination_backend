@@ -11,8 +11,8 @@ app.use(express.json())
 
 
 
-const teacherRouter = require('./routes/teacher')
-app.use('/teacher', teacherRouter);
+// const teacherRouter = require('./routes/teacher')
+// app.use('/teacher', teacherRouter);
 
 const loginRouter = require('./routes/login')
 app.use('/login', loginRouter);
@@ -34,6 +34,9 @@ app.use('/students', studentRouter)
 
 const assignmentRouter = require('./routes/assignments')
 app.use('/assignments', assignmentRouter)
+
+const testRouter = require('./routes/test')
+app.use('/test', testRouter)
 
 
 app.listen(process.env.PORT || 4000,()=>{
