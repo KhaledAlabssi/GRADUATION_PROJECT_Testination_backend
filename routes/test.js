@@ -6,7 +6,7 @@ const test = require('../controllers/test')
 
 
 
-router.get('/questions/:id', test.questionsById)
+router.get('/:id', test.questionsById)
 router.get('/answers/:id', test.answersById)
 
 module.exports = router;
