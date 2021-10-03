@@ -5,7 +5,7 @@ function questionsById(req, res) {
         if(err) throw err
         console.log(`connection as id....... ${connection.threadId}`)
         console.log('you called testById')
-        connection.query(`select questions.*, answers.id as answer_id, answers.correct, answers.option1, answers.option2, answers.option3 from questions join answers on answers.question_id = questions.id join test_has_questions on test_has_questions.question_id = questions.id where test_has_questions.test_id = ?`, `${req.params.id}`, (err, rows) => {
+        connection.query(`select * from questions join test_has_questions on test_has_questions.question_id = questions.id where test_has_questions.test_id = ?`, `${req.params.id}`, (err, rows) => {
             connection.release() // return the connection to pool
             if (!err) {
                 res.json(rows)

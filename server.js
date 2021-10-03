@@ -38,6 +38,9 @@ app.use('/assignments', assignmentRouter)
 const testRouter = require('./routes/test')
 app.use('/test', testRouter)
 
+const resultRouter = require('./routes/results')
+app.use('/results', resultRouter)
+
 
 app.listen(process.env.PORT || 4000,()=>{
     console.log("Server is running on 4000 or process.env.PORT ")
