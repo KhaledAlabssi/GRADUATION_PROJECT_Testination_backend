@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors')
 const dotenv = require('dotenv')
 dotenv.config()
+const nodemailer = require('nodemailer')
+
 
 const app = express();
 
@@ -43,6 +45,9 @@ app.use('/results', resultRouter)
 
 const answerRouter = require('./routes/answers')
 app.use('/answers', answerRouter)
+
+const emailRouter = require('./routes/email')
+app.use('/email', emailRouter)
 
 
 app.listen(process.env.PORT || 4000,()=>{
