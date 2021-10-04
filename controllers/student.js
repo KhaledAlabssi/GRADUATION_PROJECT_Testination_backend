@@ -30,7 +30,25 @@ function getStudentTest(req, res) {
     })
 }
 
+function getTest(req, res) {
+    pool.getConnection((err, connection) => {
+        if(err) throw err
+        console.log(`connection as id....... ${connection.threadId}`)
+        connection.query(`SELECT * from questions INNER JOIN test_has_questions on questions.id = test_has_questions.question_id INNER JOIN assignments on assignments.test_id = test_has_questions.test_id INNER join groups on groups.id = assignments.group_id where groups.id = '${req.body.group_id}'`, (err, rows) => {
+            connection.release() // return the connection to pool
+            if (!err) {
+                res.json(rows)
+            } else {
+                console.log(err)
+            }
+        })
+    })
+}
+
+
+
 module.exports = {
     getStudent,
-    getStudentTest
+    getStudentTest,
+    getTest
 }
