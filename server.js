@@ -31,8 +31,8 @@ app.use('/tests', testsRouter)
 const questionRouter = require('./routes/questions')
 app.use('/questions', questionRouter)
 
-const studentRouter = require('./routes/students')
-app.use('/students', studentRouter)
+const studentsRouter = require('./routes/students')
+app.use('/students', studentsRouter)
 
 const assignmentRouter = require('./routes/assignments')
 app.use('/assignments', assignmentRouter)
@@ -48,6 +48,9 @@ app.use('/answers', answerRouter)
 
 const emailRouter = require('./routes/email')
 app.use('/email', emailRouter)
+
+const studentRouter = require('./routes/student')
+app.use('/student', studentRouter)
 
 
 app.listen(process.env.PORT || 4000,()=>{

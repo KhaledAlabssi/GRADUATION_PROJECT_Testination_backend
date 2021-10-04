@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const SentQuoteEmail = (req, res) => {
     const output = `
     <p>Here is your Credentials for your test!</p>
-    <h3>Your Username: ${req.body.username}</h3>
+    <h3>Your Username: ${req.body.email}</h3>
     <h3>Your Password: ${req.body.password}</h3>
     <p>Please use the credentials shared above to access your test: link</p>
     `;
