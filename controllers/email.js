@@ -26,7 +26,7 @@ const SentQuoteEmail = (req, res) => {
     //Step 2
     let mailOptions = {
 
-        from: 'credentials@testination.com',
+        from: 'credentials@testination.net',
         to: `${req.body.email}`,
         //cc: 'khaled.absi5@gmail.com',
         //bcc: 'khaled.absi5@gmail.com',

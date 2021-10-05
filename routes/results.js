@@ -3,7 +3,7 @@ const router = express.Router();
 const result = require('../controllers/results')
 
 
-router.post('/submit', result.submit)
+router.get('/allResults', result.allResults)
 
 
 module.exports = router;
