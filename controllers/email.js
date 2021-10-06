@@ -6,7 +6,7 @@ const SentQuoteEmail = (req, res) => {
     <p>Here is your Credentials for your test!</p>
     <h3>Your Username: ${req.body.email}</h3>
     <h3>Your Password: ${req.body.password}</h3>
-    <p>Please use the credentials shared above to access your test: link</p>
+    <p>Please use the credentials shared above to access your test: <a href="https://vigilant-lichterman-12b61b.netlify.app/">Link</a></p>
     `;
 
     //Step 1
